@@ -587,7 +587,7 @@
     let aspect = 1, portrait = false, track = null;
     function shot(name) {
       const P = portrait, f = P ? Math.pow(clamp(1.3 / aspect, 1, 4), 0.62) : Math.pow(clamp(1.55 / aspect, 1, 3), 0.5);
-      const S = (look, dir, dist, fov, sx_, sy_, sxP, syP) => ({ look: V(...look), dir: V(...dir).normalize(), dist: dist * f, fov, sx: P ? (sxP || 0) : sx_, sy: P ? (syP == null ? -0.28 : syP) : sy_ });
+      const S = (look, dir, dist, fov, sx_, sy_, sxP, syP) => ({ look: V(...look), dir: V(...dir).normalize(), dist: dist * f, fov, sx: P ? (sxP || 0) : sx_, sy: P ? 0.34 : sy_ });
       switch (name) {
         case 'hero': return S([0.8, 2.6, -0.8], [-0.42, 0.3, 0.86], 27, 32, 0.26, -0.02);
         case 'hero2': return S([0.8, 2.6, -0.8], [-0.36, 0.26, 0.9], 25, 32, 0.26, -0.02);
