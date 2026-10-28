@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oluwasola Adebayo Godwin · IT Systems Administrator &amp; Cybersecurity Analyst</title>
+<meta name="description" content="Oluwasola Adebayo Godwin is an IT Systems Administrator, Cybersecurity Analyst and Network Support Engineer in Lagos, Nigeria. Secure systems, stable networks and calm, practical support.">
+<meta name="theme-color" content="#F5F6F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101315" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Oluwasola Adebayo Godwin · Always On">
+<meta property="og:description" content="A day keeping an organisation secure and running: onboarding, networks, support, security, maintenance. A scroll-through portfolio.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Oluwasola Adebayo Godwin · Always On">
+<meta name="twitter:description" content="IT Systems Administrator · Cybersecurity Analyst · Network Support Engineer, Lagos.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2306080A'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%234CC97F'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Oluwasola Adebayo Godwin","jobTitle":"IT Systems Administrator & Cybersecurity Analyst","email":"mailto:oluwasolabayo@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Lagos","addressCountry":"NG"},"alumniOf":"University of Ibadan","knowsAbout":["IT Systems Administration","Network Support","Cybersecurity","Microsoft 365","Active Directory","Firewalls","MFA","Wazuh","Wireshark","Nmap"]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F5F6F4; --fg: #12161A; --muted: #555D63; --dim: #646C70; --line: #DADDD6; --line-2: #C4C8BF;
+  --accent: #0B6E70; --accent-ink: #FFFFFF; --ok: #1B8A4C; --warn: #B46A00; --bad: #C8352E;
+  --night: #06080A; --night-fg: #EAF2F2; --night-muted: rgba(214,228,228,.72); --glow: #5FE3DA;
+  --gut: max(20px, env(safe-area-inset-left, 0px), 5.5vw);
+  --f-sans: "Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #101315; --fg: #E9ECEA; --muted: #A1A9AD; --dim: #7A848A; --line: #262C30; --line-2: #343C41; --accent: #3CC2BF; --accent-ink: #062021; --ok: #4CC97F; --warn: #E0A23A; --bad: #FF6B63; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --bg: #101315; --fg: #E9ECEA; --muted: #A1A9AD; --dim: #7A848A; --line: #262C30; --line-2: #343C41; --accent: #3CC2BF; --accent-ink: #062021; --ok: #4CC97F; --warn: #E0A23A; --bad: #FF6B63; color-scheme: dark; }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 17px/1.6 var(--f-sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+::selection { background: var(--accent); color: var(--accent-ink); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- fixed layers ---------- */
+#scene { position: fixed; inset: 0; width: 100vw; height: 100vh; height: 100lvh; display: block; z-index: 0; background: var(--bg); opacity: 0; transition: opacity .8s ease; }
+html.scene-ready #scene { opacity: 1; }
+.scrim { position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0; background: linear-gradient(90deg, rgba(6,8,10,.92) 0%, rgba(6,8,10,.78) 24%, rgba(6,8,10,.38) 42%, rgba(6,8,10,0) 58%); }
+.veil { position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0; background: var(--bg); }
+.tags { position: fixed; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+.tag { position: absolute; left: 0; top: 0; opacity: 0; display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px 7px 10px; border-radius: 999px; white-space: nowrap;
+  font: 600 12px/1 var(--f-mono); letter-spacing: .04em; color: #EAF2F2; background: rgba(6,10,12,.72); border: 1px solid rgba(95,227,218,.35); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); will-change: transform, opacity; }
+.tag i { width: 7px; height: 7px; border-radius: 50%; background: var(--glow); box-shadow: 0 0 0 3px rgba(95,227,218,.18); }
+.tag[data-state="bad"] { border-color: rgba(255,93,93,.5); } .tag[data-state="bad"] i { background: #ff5d5d; box-shadow: 0 0 0 3px rgba(255,93,93,.2); }
+.tag[data-state="warn"] { border-color: rgba(255,176,74,.5); } .tag[data-state="warn"] i { background: #ffb04a; box-shadow: 0 0 0 3px rgba(255,176,74,.2); }
+.tag[data-state="ok"] { border-color: rgba(76,201,127,.5); } .tag[data-state="ok"] i { background: #4cc97f; box-shadow: 0 0 0 3px rgba(76,201,127,.2); }
+
+/* ---------- top bar ---------- */
+.nav { position: fixed; z-index: 50; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: max(18px, env(safe-area-inset-top, 0px)) var(--gut) 18px; color: var(--fg); transition: color .5s; pointer-events: none; --chip: color-mix(in srgb, var(--bg) 80%, transparent); }
+.nav > * { pointer-events: auto; }
+.nav .brand { font: 600 15px/1 var(--f-sans); letter-spacing: -.01em; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; }
+.nav .brand i { width: 8px; height: 8px; border-radius: 50%; background: #4CC97F; box-shadow: 0 0 0 4px rgba(76,201,127,.18); }
+.nav nav { display: flex; gap: 2px; border-radius: 999px; padding: 2px; background: var(--chip); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.nav nav a { font: 500 13px/1 var(--f-mono); text-decoration: none; padding: 9px 12px; border-radius: 999px; opacity: .78; transition: opacity .2s, background .2s; }
+.nav nav a:hover { opacity: 1; background: color-mix(in srgb, currentColor 9%, transparent); }
+html[data-tone="night"] .nav { color: var(--night-fg); --chip: rgba(6,10,12,.5); }
+.nav::before { content: ""; position: absolute; inset: 0; z-index: -1; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); opacity: 0; transition: opacity .3s; }
+.nav.solid { --chip: transparent; }
+.nav.solid::before { opacity: 1; }
+.nav .cta { display: inline-flex; align-items: center; height: 34px; padding: 0 14px; border-radius: 999px; font: 600 13px/1 var(--f-sans); text-decoration: none; white-space: nowrap; background: var(--accent); color: var(--accent-ink); }
+html[data-tone="night"] .nav .cta { background: var(--glow); color: #04201f; }
+@media (max-width: 760px) { .nav nav { display: none; } }
+.progress { position: fixed; z-index: 55; left: 0; top: 0; width: 100%; height: 3px; transform-origin: 0 50%; transform: scaleX(0); background: linear-gradient(90deg, var(--accent), var(--glow)); pointer-events: none; }
+.skip { position: fixed; z-index: 30; right: max(16px, env(safe-area-inset-right, 0px)); bottom: max(18px, env(safe-area-inset-bottom, 0px)); display: inline-flex; align-items: center; gap: 8px; height: 42px; padding: 0 17px; border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--fg) 16%, transparent); background: color-mix(in srgb, var(--bg) 84%, transparent); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); color: var(--fg); font: 600 13.5px/1 var(--f-sans); cursor: pointer; transition: opacity .3s, transform .3s, background .3s, color .3s; }
+.skip:hover { border-color: var(--accent); }
+html[data-tone="night"] .skip { background: rgba(6,10,12,.62); color: var(--night-fg); border-color: rgba(255,255,255,.18); }
+.skip.off { opacity: 0; transform: translateY(10px); pointer-events: none; }
+
+/* ---------- the film ---------- */
+.film { position: relative; z-index: 2; height: 1100vh; pointer-events: none; }
+.film a, .film button { pointer-events: auto; }
+.sticky { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+.cap { position: absolute; left: var(--gut); top: 50%; width: min(540px, 40vw); opacity: 0; transform: translateY(-50%); will-change: opacity, transform; }
+.cap.day { color: var(--fg); --c-muted: var(--muted); --c-k: var(--accent); }
+.cap.night { color: var(--night-fg); --c-muted: var(--night-muted); --c-k: var(--glow); }
+.cap .k { font: 500 12px/1 var(--f-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--c-k); display: flex; align-items: center; gap: 10px; }
+.cap .k::before { content: ""; width: 22px; height: 1px; background: currentColor; }
+.cap h2 { font: 300 clamp(38px, 4.5vw, 74px)/1.02 var(--f-sans); letter-spacing: -.038em; margin: 20px 0 0; text-wrap: balance; }
+.cap h2 b { font-weight: 700; }
+.cap p { font-size: clamp(16px, 1.2vw, 19px); line-height: 1.55; color: var(--c-muted); max-width: 40ch; margin: 18px 0 0; text-wrap: pretty; }
+.cap .where { display: block; margin-top: 18px; font: 500 12px/1.5 var(--f-mono); color: var(--c-muted); letter-spacing: .02em; }
+.cap .where b { color: var(--c-k); font-weight: 500; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 22px; font: 500 12px/1 var(--f-mono); color: var(--c-muted); }
+.legend span { display: inline-flex; align-items: center; gap: 8px; }
+.legend i { width: 8px; height: 8px; border-radius: 50%; }
+.cap-hero { width: min(640px, 46vw); }
+.cap-hero .k { color: var(--accent); }
+.cap-hero h1 { font: 300 clamp(52px, 7vw, 116px)/.94 var(--f-sans); letter-spacing: -.052em; margin: 22px 0 0; }
+.cap-hero h1 b { display: block; font-weight: 700; }
+.cap-hero p { font-size: clamp(17px, 1.35vw, 21px); max-width: 34ch; color: var(--muted); margin-top: 24px; }
+.cap-hero .meta { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 28px; font: 500 13px/1.4 var(--f-mono); color: var(--muted); }
+.cue { position: absolute; left: var(--gut); bottom: max(30px, env(safe-area-inset-bottom, 0px)); display: grid; justify-items: start; gap: 10px; font: 500 11px/1 var(--f-mono); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.cue i { width: 1px; height: 46px; background: linear-gradient(var(--line-2), transparent); position: relative; overflow: hidden; }
+.cue i::after { content: ""; position: absolute; left: 0; top: -40%; width: 1px; height: 40%; background: var(--accent); animation: drip 1.9s cubic-bezier(.6,0,.3,1) infinite; }
+@keyframes drip { to { top: 110%; } }
+.rail { position: absolute; right: var(--gut); top: 50%; transform: translateY(-50%); display: grid; gap: 2px; z-index: 2; }
+.rail button { all: unset; cursor: pointer; display: grid; grid-template-columns: auto 18px; align-items: center; justify-items: end; gap: 12px; padding: 6px 0; font: 500 11px/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.rail button span { opacity: 0; transform: translateX(6px); transition: opacity .25s, transform .25s; }
+.rail button i { width: 18px; height: 1px; background: currentColor; opacity: .45; transition: width .3s, opacity .3s; }
+.rail:hover button span, .rail button:focus-visible span { opacity: 1; transform: none; }
+.rail button[aria-current="true"] { color: var(--accent); }
+.rail button[aria-current="true"] i { width: 30px; opacity: 1; }
+html[data-tone="night"] .rail button { color: rgba(214,228,228,.55); }
+html[data-tone="night"] .rail button[aria-current="true"] { color: var(--glow); }
+@media (max-width: 900px) { .rail { display: none; } }
+@media (max-width: 760px) {
+  .film { height: 1000vh; }
+  .cap, .cap-hero { left: var(--gut); right: var(--gut); width: auto; top: calc(max(18px, env(safe-area-inset-top, 0px)) + 64px); transform: none; }
+  .cap h2 { font-size: clamp(31px, 8.6vw, 44px); margin-top: 14px; }
+  .cap p { font-size: 15.5px; margin-top: 12px; }
+  .cap-hero h1 { font-size: clamp(42px, min(13.5vw, 7.4vh), 66px); margin-top: 14px; }
+  .cap-hero p { font-size: 16px; margin-top: 14px; }
+  .cap-hero .meta { margin-top: 14px; font-size: 12px; }
+  .scrim { background: linear-gradient(180deg, rgba(6,8,10,.94) 0%, rgba(6,8,10,.8) 30%, rgba(6,8,10,0) 54%); }
+}
+
+/* ---------- intro: the lids open ---------- */
+.intro { position: fixed; inset: 0; z-index: 100; }
+.intro .lid { position: absolute; left: 0; right: 0; height: 50.5%; background: #050607; transition: transform 1.05s cubic-bezier(.75,0,.2,1); }
+.intro .lid.t { top: 0; } .intro .lid.b { bottom: 0; }
+.intro .seam { position: absolute; left: 0; right: 0; top: 50%; height: 1px; transform: scaleX(0); background: linear-gradient(90deg, transparent, var(--glow), transparent); transition: transform .6s cubic-bezier(.2,.8,.2,1), opacity .4s .6s; }
+.intro .say { position: absolute; inset: 0; display: grid; place-items: center; font: 500 15px/1.7 var(--f-mono); color: #CFE0E0; text-align: left; transition: opacity .25s; }
+.intro .say b { color: var(--glow); font-weight: 500; }
+.intro .say .l { opacity: 0; transform: translateY(5px); animation: scanIn .35s cubic-bezier(.2,.8,.2,1) forwards; }
+@keyframes scanIn { to { opacity: 1; transform: none; } }
+.intro.seam-on .seam { transform: scaleX(1); }
+.intro.open { pointer-events: none; }
+.intro.open .say { opacity: 0; }
+.intro.open .lid.t { transform: translateY(-101%); } .intro.open .lid.b { transform: translateY(101%); }
+.intro.open .seam { opacity: 0; }
+
+/* ---------- after the film ---------- */
+.after { position: relative; z-index: 3; background: var(--bg); }
+.sec { padding: clamp(96px, 15vh, 168px) var(--gut); max-width: 1380px; margin: 0 auto; }
+.sec-k { font: 500 12px/1 var(--f-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--accent); display: flex; align-items: center; gap: 10px; }
+.sec-k::before { content: ""; width: 22px; height: 1px; background: currentColor; }
+.sec h2 { font: 300 clamp(44px, 6.6vw, 104px)/.98 var(--f-sans); letter-spacing: -.048em; margin: 24px 0 0; text-wrap: balance; }
+.sec h2 b { font-weight: 700; }
+.sec .lede { font-size: clamp(17px, 1.35vw, 21px); color: var(--muted); max-width: 54ch; margin: 26px 0 0; }
+.rv { opacity: 0; transform: translateY(18px); transition: opacity .8s cubic-bezier(.2,.8,.2,1), transform .8s cubic-bezier(.2,.8,.2,1); }
+.rv.in { opacity: 1; transform: none; }
+.rv-d1 { transition-delay: .08s; } .rv-d2 { transition-delay: .16s; }
+
+/* work */
+.work { list-style: none; margin: 72px 0 0; padding: 0; border-top: 1px solid var(--line); }
+.work li { border-bottom: 1px solid var(--line); }
+.work summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 56px minmax(0, 1fr) minmax(180px, 280px) 28px; align-items: center; gap: 24px; padding: 30px 0; position: relative; }
+.work summary::-webkit-details-marker { display: none; }
+.work summary::before { content: ""; position: absolute; left: 0; bottom: -1px; height: 1px; width: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+.work summary:hover::before, .work details[open] summary::before { transform: scaleX(1); }
+.w-n { font: 500 13px/1 var(--f-mono); color: var(--dim); }
+.w-t { display: grid; gap: 8px; font: 500 clamp(22px, 2.3vw, 34px)/1.12 var(--f-sans); letter-spacing: -.022em; transition: transform .4s cubic-bezier(.2,.8,.2,1); }
+.w-t small { font: 500 12px/1 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.work summary:hover .w-t { transform: translateX(8px); }
+.w-m { justify-self: end; font: 500 12px/1 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; padding: 8px 11px; border-radius: 999px; border: 1px solid var(--line-2); color: var(--muted); white-space: nowrap; }
+.w-m.live { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 40%, transparent); }
+.w-m.wip { color: var(--warn); border-color: color-mix(in srgb, var(--warn) 40%, transparent); }
+.w-x { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--line-2); position: relative; transition: transform .35s, border-color .2s, background .2s; }
+.w-x::before, .w-x::after { content: ""; position: absolute; left: 50%; top: 50%; width: 10px; height: 1.5px; background: currentColor; transform: translate(-50%, -50%); }
+.w-x::after { transform: translate(-50%, -50%) rotate(90deg); transition: transform .35s; }
+.work details[open] .w-x { transform: rotate(180deg); background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.work details[open] .w-x::after { transform: translate(-50%, -50%) rotate(0deg); }
+.w-b { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 24px; padding: 6px 0 34px; }
+.w-b > div { grid-column: 2; display: grid; gap: 18px; max-width: 70ch; }
+.w-b p { margin: 0; color: var(--muted); font-size: 17.5px; }
+.tools { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.tools li { font: 500 12.5px/1 var(--f-mono); padding: 8px 11px; border: 1px solid var(--line-2); border-radius: 999px; }
+@media (max-width: 760px) {
+  .work summary { grid-template-columns: minmax(0, 1fr) 28px; gap: 14px 16px; padding: 24px 0; }
+  .w-n { display: none; }
+  .w-m { grid-column: 1; grid-row: 2; justify-self: start; }
+  .w-x { grid-column: 2; grid-row: 1; align-self: start; }
+  .w-b { grid-template-columns: 1fr; } .w-b > div { grid-column: 1; }
+}
+
+/* experience */
+.path { margin: 64px 0 0; display: grid; border-top: 1px solid var(--line); }
+.path > div { display: grid; grid-template-columns: 170px minmax(0, 1fr) auto; gap: 28px; padding: 28px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.path .y { font: 500 13px/1.5 var(--f-mono); color: var(--dim); }
+.path h3 { margin: 0; font: 600 clamp(19px, 1.7vw, 24px)/1.25 var(--f-sans); letter-spacing: -.015em; }
+.path .o { font: 500 12.5px/1.4 var(--f-mono); color: var(--accent); margin-top: 6px; }
+.path ul { margin: 12px 0 0; padding: 0 0 0 18px; color: var(--muted); max-width: 68ch; display: grid; gap: 6px; }
+.path .st { font: 500 12px/1 var(--f-mono); color: var(--muted); white-space: nowrap; }
+.path .st.now { color: var(--ok); }
+@media (max-width: 700px) { .path > div { grid-template-columns: 1fr; gap: 6px; } .path .st { order: -1; } }
+
+/* skills */
+.tb { position: relative; margin-top: 44px; }
+#tbCanvas { display: block; width: 100%; height: clamp(460px, 38vw, 540px); touch-action: pan-y; -webkit-user-select: none; user-select: none; }
+@media (max-width: 899px) { #tbCanvas { height: 860px; } }
+@media (max-width: 519px) { #tbCanvas { height: 1080px; } }
+.tb-tip { position: absolute; z-index: 2; width: min(290px, calc(100% - 24px)); padding: 14px 16px 15px; border-radius: 14px; background: var(--fg); color: var(--bg); box-shadow: 0 18px 40px -16px rgba(0,0,0,.45); transform: translate(-50%, calc(-100% - 14px)); pointer-events: none; }
+.tb-tip b { display: block; font-size: 17px; }
+.tb-tip .g { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; font: 500 11px/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; opacity: .75; }
+.tb-tip .g i { width: 8px; height: 8px; border-radius: 50%; }
+.tb-tip p { margin: 8px 0 0; font-size: 14.5px; line-height: 1.45; opacity: .88; }
+.tb-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 14px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; height: 50px; padding: 0 22px; border-radius: 999px; font: 600 15px/1 var(--f-sans); text-decoration: none; border: 1px solid transparent; cursor: pointer; background: transparent; transition: transform .2s, background .2s, border-color .2s, color .2s; }
+.btn:hover { transform: translateY(-2px); }
+.btn.line { border-color: var(--line-2); color: var(--fg); }
+.btn.line:hover { border-color: var(--accent); color: var(--accent); }
+.btn.fill { background: var(--accent); color: var(--accent-ink); }
+
+/* credentials */
+.creds { margin-top: 64px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 40px; }
+.creds h3 { grid-column: 1 / -1; font: 500 12px/1 var(--f-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 40px 0 8px; }
+.creds h3:first-child { margin-top: 0; }
+.creds div { padding: 20px 0; border-top: 1px solid var(--line); display: grid; gap: 6px; align-content: start; }
+.creds b { font-weight: 600; font-size: 17px; line-height: 1.35; }
+.creds span { color: var(--muted); font-size: 15px; line-height: 1.5; }
+.creds em { font: 500 12px/1 var(--f-mono); font-style: normal; color: var(--accent); }
+@media (max-width: 900px) { .creds { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .creds { grid-template-columns: 1fr; } }
+
+/* contact */
+.contact { padding-bottom: clamp(80px, 12vh, 140px); }
+.mail { display: inline-block; margin-top: 44px; font: 600 clamp(28px, 4.6vw, 70px)/1.05 var(--f-sans); letter-spacing: -.04em; text-decoration: none; border-bottom: 2px solid var(--line-2); padding-bottom: 6px; transition: color .2s, border-color .2s; overflow-wrap: anywhere; }
+.mail:hover { color: var(--accent); border-color: var(--accent); }
+.row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 30px; }
+.note { font: 500 13px/1 var(--f-mono); color: var(--ok); }
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 28px var(--gut) max(28px, env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--line); font: 500 12.5px/1.5 var(--f-mono); color: var(--muted); max-width: 1380px; margin: 0 auto; }
+.foot a { text-decoration: none; border-bottom: 1px solid var(--line-2); }
+
+/* without the film: the chapters read as a plain list */
+.nofilm #scene, .nofilm .skip, .nofilm .progress, .nofilm .rail, .nofilm .cue, .nofilm .scrim, .nofilm .tags, .nofilm .intro { display: none !important; }
+.nofilm .film { height: auto; pointer-events: auto; }
+.nofilm .sticky { position: static; height: auto; overflow: visible; padding: 120px 0 40px; }
+.nofilm .cap, .nofilm .cap-hero { position: static; opacity: 1 !important; transform: none !important; width: auto; max-width: 760px; margin: 0 var(--gut) 72px; color: var(--fg); --c-muted: var(--muted); --c-k: var(--accent); }
+@media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; transition: none; } .cue i::after { animation: none; } }
+</style>
+</head>
+<body>
+
+<div class="intro" id="intro" hidden aria-hidden="true">
+  <div class="lid t"></div><div class="lid b"></div><div class="seam"></div>
+  <div class="say" id="introSay"></div>
+</div>
+<script>
+  (function () {
+    try {
+      if (location.hash || /[?&]p=/.test(location.search) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      document.getElementById('intro').hidden = false; document.documentElement.style.overflow = 'hidden';
+    } catch (e) {}
+  })();
+</script>
+
+<canvas id="scene" aria-hidden="true"></canvas>
+<div class="scrim" id="scrim"></div>
+<div class="tags" id="tags" aria-hidden="true"></div>
+<div class="veil" id="veil"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<button class="skip" id="skip" type="button">Skip to my work <span aria-hidden="true">↓</span></button>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" data-p="0"><i aria-hidden="true"></i>Oluwasola A.</a>
+  <nav aria-label="Sections">
+    <a href="#work">Work</a>
+    <a href="#path">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#creds">Credentials</a>
+  </nav>
+  <a class="cta" href="#contact">Get in touch</a>
+</header>
+
+<main>
+  <section class="film" id="top" aria-label="Always On: a day keeping an organisation secure and running">
+    <div class="sticky">
+      <div class="cap cap-hero day" data-in="-1" data-out="0.04">
+        <span class="k">IT Systems Administrator · Cybersecurity Analyst</span>
+        <h1>Oluwasola <b>Adebayo</b></h1>
+        <p>I keep organisations secure and running. Calm support, stable networks, and security that holds.</p>
+        <div class="meta"><span>Lagos, Nigeria</span><span>MSc Information Science</span><span>Network Support Engineer</span></div>
+      </div>
+      <div class="cue" id="cue" aria-hidden="true">Scroll to start the day<i></i></div>
+
+      <div class="cap day" data-in="0.07" data-out="0.165">
+        <span class="k">01 · Onboarding</span>
+        <h2>A new starter. <b>Ready on day one.</b></h2>
+        <p>Accounts, licences, group access, multi-factor sign-in and endpoint protection, all set before they sit down. Departing staff get the reverse, just as carefully.</p>
+        <span class="where">Microsoft 365 · Active Directory · MFA · <b>Endpoint protection</b></span>
+      </div>
+      <div class="cap night" data-in="0.205" data-out="0.275">
+        <span class="k">02 · Operations</span>
+        <h2>Every desk, <b>every morning.</b></h2>
+        <p>Working devices, stable internet and prompt help, coordinated across the whole organisation so nobody notices IT at all.</p>
+        <span class="where">PrintBlock Africa · Institute of Hospitality UK · <b>Nethermentor</b></span>
+      </div>
+      <div class="cap night" data-in="0.315" data-out="0.425">
+        <span class="k">03 · Network</span>
+        <h2>When a link drops, <b>I find it.</b></h2>
+        <p>LAN and WAN, routers, switches and firewalls. Trace the fault, fix it, and bring people back online before the queue builds.</p>
+        <div class="legend" aria-hidden="true"><span><i style="background:#5fe3da"></i>Healthy</span><span><i style="background:#ff5d5d"></i>Fault</span><span><i style="background:#4cc97f"></i>Restored</span></div>
+        <span class="where">TCP/IP · DNS · DHCP · VLANs · Subnetting · <b>NASC Ibadan</b></span>
+      </div>
+      <div class="cap night" data-in="0.455" data-out="0.57">
+        <span class="k">04 · Support</span>
+        <h2>Calm help. <b>Real fixes.</b></h2>
+        <p>Hardware, software and connectivity problems solved in person or remotely, explained in plain language and written down so they don't come back.</p>
+        <span class="where">Freshdesk · AnyDesk · Hardware repair · <b>Ewash · PrintBlock</b></span>
+      </div>
+      <div class="cap night" data-in="0.61" data-out="0.72">
+        <span class="k">05 · Security</span>
+        <h2>Threats stop <b>at the edge.</b></h2>
+        <p>Firewalls, endpoint protection, MFA and access control, with traffic watched and incidents recorded. Phishing is caught before anyone clicks.</p>
+        <div class="legend" aria-hidden="true"><span><i style="background:#5fe3da"></i>Shield</span><span><i style="background:#ffb04a"></i>Inspected</span><span><i style="background:#ff5d5d"></i>Blocked</span></div>
+        <span class="where">Wazuh · Wireshark · Nmap · Burp Suite · <b>Cybernovr · Treal Hotels</b></span>
+      </div>
+      <div class="cap night" data-in="0.75" data-out="0.855">
+        <span class="k">06 · Maintenance</span>
+        <h2>Patched. Backed up. <b>Written down.</b></h2>
+        <p>Routine updates, tested backups and clear records, so systems stay stable and the next person can pick up exactly where I left off.</p>
+        <span class="where">Patching · Backups · <b>Documentation</b></span>
+      </div>
+      <div class="cap night" data-in="0.895" data-out="0.975">
+        <span class="k">07 · Always on</span>
+        <h2>Secure systems. <b>Calm users.</b></h2>
+        <p>That's the job, every day. Here's the work behind it.</p>
+      </div>
+
+      <nav class="rail" id="rail" aria-label="Chapters">
+        <button data-p="0.12"><span>Onboard</span><i></i></button>
+        <button data-p="0.24"><span>Operate</span><i></i></button>
+        <button data-p="0.37"><span>Network</span><i></i></button>
+        <button data-p="0.51"><span>Support</span><i></i></button>
+        <button data-p="0.665"><span>Secure</span><i></i></button>
+        <button data-p="0.8"><span>Maintain</span><i></i></button>
+        <button data-p="0.935"><span>Always on</span><i></i></button>
+        <button data-p="1.02"><span>Work</span><i></i></button>
+      </nav>
+    </div>
+  </section>
+
+  <div class="after">
+    <section class="sec" id="work" aria-labelledby="workTitle">
+      <span class="sec-k rv">08 · Projects</span>
+      <h2 id="workTitle" class="rv rv-d1">Things I've <b>built.</b></h2>
+      <p class="lede rv rv-d2">Practical tools that removed a risk or a delay for the people around me. Open one for the detail.</p>
+      <ol class="work rv" id="workList">
+        <li><details><summary><span class="w-n">01</span><span class="w-t"><small>Security</small>Phishing Email Detection System</span><span class="w-m live">Built</span><span class="w-x" aria-hidden="true"></span></summary>
+          <div class="w-b"><div><p>A detection tool that helps identify suspicious emails before they do harm. It raised staff awareness and reduced the risk of email-based security incidents.</p><ul class="tools"><li>Email security</li><li>Threat detection</li><li>User awareness</li></ul></div></div></details></li>
+        <li><details><summary><span class="w-n">02</span><span class="w-t"><small>Workflow</small>Memo Approval System</span><span class="w-m live">Built</span><span class="w-x" aria-hidden="true"></span></summary>
+          <div class="w-b"><div><p>An internal platform for creating, approving and filing memos. It replaced paperwork and cut approval delays across departments.</p><ul class="tools"><li>Web development</li><li>Approval workflows</li><li>Record keeping</li></ul></div></div></details></li>
+        <li><details><summary><span class="w-n">03</span><span class="w-t"><small>Records</small>Corporate Event Management System</span><span class="w-m wip">In progress</span><span class="w-x" aria-hidden="true"></span></summary>
+          <div class="w-b"><div><p>A system for organisations to store event details securely, manage records, and archive event photos for future reference and reporting.</p><ul class="tools"><li>Secure storage</li><li>Data management</li><li>Reporting</li></ul></div></div></details></li>
+        <li><details><summary><span class="w-n">04</span><span class="w-t"><small>Operations</small>IT Documentation &amp; Process Automation</span><span class="w-m live">Ongoing</span><span class="w-x" aria-hidden="true"></span></summary>
+          <div class="w-b"><div><p>Clear documentation and simple automation around system usage and security practice, which made support more consistent and easier to hand over. Includes event email automations and member database upkeep.</p><ul class="tools"><li>Runbooks</li><li>Automation</li><li>Security practice</li></ul></div></div></details></li>
+      </ol>
+    </section>
+
+    <section class="sec" id="path" aria-labelledby="pathTitle">
+      <span class="sec-k rv">09 · Experience</span>
+      <h2 id="pathTitle" class="rv rv-d1">Where I've <b>kept things running.</b></h2>
+      <div class="path rv">
+        <div><span class="y">Apr 2026 – Now</span><div><h3>System Administrator</h3><div class="o">Treal Hotels and Suites · Ogun State · Hybrid</div>
+          <ul><li>Manage user accounts, permissions and access control across hotel systems, reducing unauthorised access risk.</li><li>Monitor network and system activity to spot and respond to suspicious behaviour.</li><li>Support hotel operations systems and maintain the network, keeping service running.</li></ul></div><span class="st now">Current</span></div>
+        <div><span class="y">Aug – Nov 2025</span><div><h3>Cybersecurity Technical Analyst</h3><div class="o">Cybernovr Limited · Lagos · Contract</div>
+          <ul><li>Configured and monitored firewalls, endpoint protection and cloud security tools for client environments.</li><li>Implemented user access controls and MFA policies across systems.</li><li>Produced technical documentation and incident records that made handovers faster.</li></ul></div><span class="st">Contract</span></div>
+        <div><span class="y">Nov 2024 – Now</span><div><h3>IT &amp; Operations Coordinator</h3><div class="o">Institute of Hospitality UK · Part-time</div>
+          <ul><li>Deliver virtual events end to end: Zoom setup, live streaming and real-time support.</li><li>Maintain member databases and build event email automations.</li><li>Monitor systems, backups and platform performance; train staff on digital tools.</li></ul></div><span class="st now">Current</span></div>
+        <div><span class="y">Mar 2024 – Oct 2025</span><div><h3>IT &amp; Operations Coordinator</h3><div class="o">PrintBlock Africa · Lagos</div>
+          <ul><li>Coordinated daily IT operations: stable internet, working devices and prompt user support.</li><li>Enforced access control and endpoint protection to strengthen security posture.</li><li>Repaired PCs and laptops in-house, avoiding downtime and replacement costs.</li></ul></div><span class="st"></span></div>
+        <div><span class="y">Jan 2024 – Now</span><div><h3>Executive Assistant to the MD (IT Operations)</h3><div class="o">Nethermentor Limited · Lagos</div>
+          <ul><li>Technical and administrative support to the Managing Director, streamlining executive workflows.</li><li>Coordinate digital operations, virtual meetings and documentation for consulting projects.</li><li>Maintain digital assets, communication channels and technical tools.</li></ul></div><span class="st now">Current</span></div>
+        <div><span class="y">Jan 2023 – Feb 2024</span><div><h3>IT Systems Administrator / Network Support Engineer</h3><div class="o">National Agricultural Seeds Council (NASC) · Ibadan</div>
+          <ul><li>Ran day-to-day IT systems and network support; administered accounts, email and permissions.</li><li>Supported LAN/WAN connectivity, routers, switches, printers and workstations.</li><li>Carried out maintenance, OS updates and backups; repaired laptops and desktops in-house.</li></ul></div><span class="st"></span></div>
+        <div><span class="y">Mar 2022 – Oct 2023</span><div><h3>Technical Support Specialist</h3><div class="o">Ewash Enterprise · Akure / Remote</div>
+          <ul><li>Remote support for software, hardware and connectivity issues.</li><li>Installed and configured applications for consistent work environments.</li><li>Documented resolutions, reducing repeat incidents and response time.</li></ul></div><span class="st"></span></div>
+      </div>
+    </section>
+
+    <section class="sec" id="skills" aria-labelledby="skillsTitle">
+      <span class="sec-k rv">10 · Skills</span>
+      <h2 id="skillsTitle" class="rv rv-d1">What's in the <b>toolbox.</b></h2>
+      <p class="lede rv rv-d2">Five buckets of tools I use. Grab a bubble and throw it, give the buckets a shake, or tap one to see what it's for.</p>
+      <div class="tb rv">
+        <canvas id="tbCanvas" aria-hidden="true"></canvas>
+        <div class="tb-tip" id="tbTip" hidden role="status"><b></b><span class="g"><i></i><em></em></span><p></p></div>
+        <div class="tb-actions"><button class="btn line" id="tbShake" type="button">Shake the buckets</button><button class="btn line" id="tbTidy" type="button">Tidy up</button></div>
+        <ul class="sr" id="tbList"></ul>
+      </div>
+    </section>
+
+    <section class="sec" id="creds" aria-labelledby="credsTitle">
+      <span class="sec-k rv">11 · Credentials</span>
+      <h2 id="credsTitle" class="rv rv-d1">Always <b>learning.</b></h2>
+      <div class="creds rv">
+        <h3>Education</h3>
+        <div><em>University of Ibadan</em><b>MSc Information Science</b><span>Oyo State</span></div>
+        <div><em>University of the People</em><b>BSc Computer Science</b><span>In progress</span></div>
+        <div><em>Adekunle Ajasin University</em><b>BSc Agricultural Extension</b><span>Akungba, Ondo State</span></div>
+        <h3>Certifications &amp; training</h3>
+        <div><em>ICDFA</em><b>Ethical Hacking &amp; Digital Forensics</b><span>Institute of Cybersecurity and Digital Forensics</span></div>
+        <div><em>Udacity · Bertelsmann</em><b>Foundation of Ethical Hacking</b><span>Nanodegree</span></div>
+        <div><em>Cisco Networking Academy</em><b>Introduction to Cybersecurity</b><span>Cisco certified</span></div>
+        <div><em>Huawei</em><b>Networking Fundamentals</b><span>Huawei certified</span></div>
+        <div><em>Udemy</em><b>IP Addressing &amp; Subnetting</b><span>Zero to Hero</span></div>
+        <div><em>IBM · Coursera</em><b>Tools for Data Science</b><span>Data collection, processing and visualisation</span></div>
+        <h3>Memberships</h3>
+        <div><em>NCS</em><b>Nigeria Computer Society</b><span>Member</span></div>
+        <div><em>ICDFA</em><b>International Cybersecurity and Digital Forensics Academy</b><span>Member</span></div>
+        <div><em>NACSS</em><b>National Association of Cybersecurity Students</b><span>Member</span></div>
+        <div><em>SISTN</em><b>Society for Information Science and Technology of Nigeria</b><span>Member</span></div>
+        <div><em>Rotary</em><b>Rotary Club Lagos</b><span>Member</span></div>
+      </div>
+    </section>
+
+    <section class="sec contact" id="contact" aria-labelledby="contactTitle">
+      <span class="sec-k rv">12 · Contact</span>
+      <h2 id="contactTitle" class="rv rv-d1">Let's keep yours <b>always on.</b></h2>
+      <p class="lede rv rv-d2">Open to IT systems administration, network support and cybersecurity roles, in Lagos or remote. The quickest way to reach me is email.</p>
+      <a class="mail rv" href="mailto:oluwasolabayo@gmail.com">oluwasolabayo@gmail.com</a>
+      <div class="row rv">
+        <button class="btn fill" id="copyMail" type="button">Copy email</button>
+        <a class="btn line" href="mailto:oluwasolabayo@gmail.com?subject=CV%20request">Request my CV</a>
+        <span class="note" id="copyNote" role="status"></span>
+      </div>
+    </section>
+    <footer class="foot"><span>© 2026 Oluwasola Adebayo Godwin · Lagos, Nigeria</span><span>Built by hand with Three.js. No tracking, no cookies. <a href="#top" data-p="0">Watch it again ↑</a></span></footer>
+  </div>
+</main>
+
+<script src="lib/three.min.js"></script>
+<script src="lib/textures.js"></script>
+<script src="lib/macbook.js"></script>
+<script src="lib/toolbox.js"></script>
+<script src="office.js"></script>
+<script>
+(function () {
+  'use strict';
+  const $ = (s, r) => (r || document).querySelector(s), $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+  const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+  const smooth = t => t * t * (3 - 2 * t);
+  const root = document.documentElement, reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const darkMQ = matchMedia('(prefers-color-scheme: dark)');
+  const filmEl = $('#top'), canvas = $('#scene'), caps = $$('.cap'), rail = $$('#rail button');
+  const scrim = $('#scrim'), veil = $('#veil'), bar = $('#progress'), skip = $('#skip'), nav = $('#nav'), cue = $('#cue');
+
+  // ---- scroll → film progress ----
+  const total = () => filmEl.offsetHeight - innerHeight;
+  const progress = () => { const t = total(); return t > 0 ? clamp(-filmEl.getBoundingClientRect().top / t) : 0; };
+  const FADE = 0.016;
+  let tone = '';
+  function paint() {
+    const p = progress();
+    let night = 0;
+    caps.forEach(c => {
+      const a = +c.dataset.in, b = +c.dataset.out;
+      const o = a < 0 ? 1 - smooth(clamp((p - (b - FADE)) / FADE)) : smooth(clamp((p - a) / FADE)) * (1 - smooth(clamp((p - (b - FADE)) / FADE)));
+      c.style.opacity = o.toFixed(3);
+      c.style.visibility = o > 0.001 ? 'visible' : 'hidden';
+      const shift = (1 - o) * 16 * (p < (a + b) / 2 ? 1 : -1);
+      c.style.transform = innerWidth > 760 ? `translateY(calc(-50% + ${shift.toFixed(1)}px))` : `translateY(${shift.toFixed(1)}px)`;
+      if (c.classList.contains('night')) night = Math.max(night, o);
+    });
+    scrim.style.opacity = (night * 0.9).toFixed(3);
+    veil.style.opacity = smooth(clamp((p - 0.972) / 0.025)).toFixed(3);
+    cue.style.opacity = (1 - clamp(p / 0.02)).toFixed(3);
+    bar.style.transform = `scaleX(${p.toFixed(4)})`;
+    const past = filmEl.getBoundingClientRect().bottom < 72;
+    const tn = !past && p > 0.21 && p < 0.975 ? 'night' : 'day';
+    if (tn !== tone) { tone = tn; root.dataset.tone = tn; }
+    nav.classList.toggle('solid', past);
+    skip.classList.toggle('off', past || p > 0.95);
+    let cur = -1; rail.forEach((b, i) => { if (p >= +b.dataset.p - 0.07) cur = i; });
+    rail.forEach((b, i) => b.setAttribute('aria-current', i === cur ? 'true' : 'false'));
+    if (film) film.setProgress(p);
+  }
+  function scrollToP(p) {
+    const y = p > 1 ? $('#work').getBoundingClientRect().top + scrollY : filmEl.offsetTop + p * total();
+    scrollTo({ top: y, behavior: reduced ? 'auto' : 'smooth' });
+  }
+  rail.forEach(b => b.addEventListener('click', () => scrollToP(+b.dataset.p)));
+  $$('a[data-p]').forEach(a => a.addEventListener('click', e => { if (root.classList.contains('nofilm')) return; e.preventDefault(); scrollToP(+a.dataset.p); }));
+  skip.addEventListener('click', () => scrollToP(1.02));
+
+  // ---- the film ----
+  let film = null;
+  try {
+    film = window.UIConnect && UIConnect.office ? UIConnect.office({
+      canvas, reduced, labels: $('#tags'),
+      isDark: () => root.dataset.theme ? root.dataset.theme === 'dark' : darkMQ.matches,
+      pageBg: () => getComputedStyle(root).getPropertyValue('--bg').trim()
+    }) : null;
+  } catch (e) { console.error(e); film = null; }
+  if (!film) root.classList.add('nofilm');
+  else {
+    const jump = /[?&]p=([\d.]+)/.exec(location.search);
+    if (jump) scrollTo(0, filmEl.offsetTop + Math.min(1, +jump[1]) * total());
+    film.setProgress(progress(), true);
+    requestAnimationFrame(() => root.classList.add('scene-ready'));
+    new IntersectionObserver(es => film.setVisible(es[0].isIntersecting), { rootMargin: '10% 0px' }).observe(filmEl);
+    darkMQ.addEventListener && darkMQ.addEventListener('change', () => setTimeout(() => film.theme(), 30));
+  }
+  addEventListener('scroll', paint, { passive: true });
+  addEventListener('resize', paint);
+  paint();
+
+  // ---- intro: a short boot line, then the lids open ----
+  const intro = $('#intro');
+  if (!intro.hidden) {
+    const say = $('#introSay');
+    const lines = ['Starting the day<b>…</b>', 'Network <b>up</b> · Shield <b>on</b> · Backups <b>verified</b>'];
+    say.innerHTML = '<div>' + lines.map((l, i) => `<div class="l" style="animation-delay:${0.15 + i * 0.45}s">› ${l}</div>`).join('') + '</div>';
+    let done = false;
+    const open = () => {
+      if (done) return; done = true;
+      intro.classList.add('seam-on');
+      setTimeout(() => { intro.classList.add('open'); root.style.overflow = ''; }, 380);
+      setTimeout(() => { intro.hidden = true; }, 1600);
+    };
+    setTimeout(open, 1500);
+    intro.addEventListener('click', open); addEventListener('keydown', open, { once: true });
+  }
+
+  // ---- reveal on scroll ----
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+  $$('.rv').forEach(el => io.observe(el));
+
+  // ---- skills ----
+  const SKILLS = [
+    { name: 'Systems & Support', color: '#0F8A8C', skills: [
+      ['Microsoft 365', 'Users, licences, mailboxes and everyday administration.'],
+      ['Windows', 'Workstation setup, patching and troubleshooting.'],
+      ['macOS', 'Supporting Apple devices alongside Windows.'],
+      ['Linux', 'Command-line administration and server basics.'],
+      ['Active Directory', 'Accounts, groups and permissions (basic).'],
+      ['Hardware repair', 'Diagnosing and repairing PCs and laptops in-house.'],
+      ['Backups', 'Scheduling and checking backups.'],
+      ['Freshdesk', 'Ticketing for the service desk.'],
+      ['AnyDesk', 'Remote support sessions.']] },
+    { name: 'Networking', color: '#3B6FD8', skills: [
+      ['LAN / WAN', 'Troubleshooting connectivity and performance.'],
+      ['Routers & switches', 'Configuration and fault finding.'],
+      ['Firewalls', 'Rules and monitoring at the perimeter.'],
+      ['TCP/IP', 'How traffic actually moves.'],
+      ['DNS', 'Name resolution and its failure modes.'],
+      ['DHCP', 'Address allocation across the network.'],
+      ['VLANs', 'Separating traffic by purpose.'],
+      ['Subnetting', 'IP addressing and planning.']] },
+    { name: 'Cybersecurity', color: '#C8352E', skills: [
+      ['Threat detection', 'Spotting suspicious behaviour early.'],
+      ['Incident response', 'Containing, fixing and recording incidents.'],
+      ['Vulnerability assessment', 'Finding weaknesses before attackers do.'],
+      ['Penetration testing', 'Basic testing of systems I support.'],
+      ['MFA & access control', 'Least privilege and strong sign-in.'],
+      ['Endpoint protection', 'Antivirus and endpoint security tools.'],
+      ['Wazuh', 'SIEM monitoring and alerts.'],
+      ['Wireshark', 'Packet capture and traffic analysis.'],
+      ['Nmap', 'Network discovery and port scanning.'],
+      ['Burp Suite', 'Web application security testing.'],
+      ['Awareness training', 'Helping staff recognise phishing and risk.']] },
+    { name: 'Cloud & Automation', color: '#7A5AF8', skills: [
+      ['Azure', 'Basic administration.'],
+      ['AWS', 'Basic administration.'],
+      ['AI for security', 'Using AI tools for security automation and monitoring.'],
+      ['Monitoring', 'Keeping an eye on systems and performance.'],
+      ['Email automation', 'Event and member communications.']] },
+    { name: 'Web & Data', color: '#B46A00', skills: [
+      ['HTML & CSS', 'Building internal web tools.'],
+      ['JavaScript', 'Interactive pages and small apps.'],
+      ['SQL', 'Basic queries and data handling.'],
+      ['WordPress', 'Site setup and maintenance.'],
+      ['Shopify', 'Store setup and maintenance.'],
+      ['Data analysis', 'Collection, processing and visualisation.'],
+      ['Research', 'Research design and analytical reporting.']] }
+  ];
+  $('#tbList').innerHTML = SKILLS.map(g => `<li>${g.name}: ${g.skills.map(x => x[0]).join(', ')}</li>`).join('');
+  const tbTip = $('#tbTip'), tbWrap = $('.tb');
+  let tipTimer = 0;
+  function showTip(t) {
+    clearTimeout(tipTimer);
+    if (!t) { tbTip.hidden = true; return; }
+    $('b', tbTip).textContent = t.name; $('em', tbTip).textContent = t.group; $('.g i', tbTip).style.background = t.color; $('p', tbTip).textContent = t.note;
+    const w = tbWrap.clientWidth, half = Math.min(145, w / 2 - 12);
+    tbTip.style.left = clamp(t.x, half + 6, w - half - 6) + 'px'; tbTip.style.top = Math.max(110, t.y) + 'px';
+    tbTip.hidden = false;
+    tipTimer = setTimeout(() => { tbTip.hidden = true; }, 5000);
+  }
+  const toolbox = window.Toolbox ? Toolbox.mount($('#tbCanvas'), { groups: SKILLS, reduced, onPick: showTip }) : null;
+  $('#tbShake').addEventListener('click', () => toolbox && toolbox.shake());
+  $('#tbTidy').addEventListener('click', () => toolbox && toolbox.tidy());
+
+  // ---- contact ----
+  $('#copyMail').addEventListener('click', async () => {
+    const note = $('#copyNote');
+    try { await navigator.clipboard.writeText('oluwasolabayo@gmail.com'); note.textContent = 'Copied'; }
+    catch (e) { note.textContent = 'oluwasolabayo@gmail.com'; }
+    setTimeout(() => { note.textContent = ''; }, 2400);
+  });
+})();
+</script>
+</body>
+</html>
