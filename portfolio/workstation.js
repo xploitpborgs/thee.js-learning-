@@ -207,7 +207,7 @@
     // ---------- the tower: glass side, three front fans, a GPU and an AIO ----------
     const PX = 5.95, PZ = -1.1, PW = 2.15, PH = 4.7, PD = 4.5;
     const pc = new THREE.Group(); pc.position.set(PX, 0, PZ); scene.add(pc);
-    const caseMat = std(0x0e0f11, 0.42, 0.7);
+    const caseMat = std(0x0b0c0e, 0.6, 0.5, { envMapIntensity: 0.5 });
     const rgb = new THREE.Color(), rgbMat = new THREE.MeshBasicMaterial({ color: 0xffffff, toneMapped: false });
     add(new THREE.BoxGeometry(PW, 0.12, PD), caseMat, 0, PH - 0.06, 0, pc);                 // top
     add(new THREE.BoxGeometry(PW, 0.14, PD), caseMat, 0, 0.12, 0, pc);                      // bottom
@@ -304,17 +304,17 @@
 
     // ---------- the lamp ----------
     const lampMat = std(0x16171a, 0.35, 0.8);
-    const lamp = new THREE.Group(); lamp.position.set(-7.4, 0, -2.6); scene.add(lamp);
+    const lamp = new THREE.Group(); lamp.position.set(-8.4, 0, -3.2); scene.add(lamp);
     add(new THREE.CylinderGeometry(0.75, 0.82, 0.16, 40), lampMat, 0, 0.08, 0, lamp);
-    const j1 = V(0, 0.16, 0), j2 = V(0.6, 5.2, 0.4), j3 = V(3.2, 6.6, 2.2);
+    const j1 = V(0, 0.16, 0), j2 = V(0.6, 5.2, 0.4), j3 = V(2.6, 6.8, 1.6);
     const arm = (a, b) => { const d = b.clone().sub(a), m = add(new THREE.CylinderGeometry(0.07, 0.07, d.length(), 10), lampMat, 0, 0, 0, lamp); m.position.copy(a).addScaledVector(d, 0.5); m.quaternion.setFromUnitVectors(V(0, 1, 0), d.normalize()); };
     arm(j1, j2); arm(j2, j3);
     add(new THREE.SphereGeometry(0.14, 16, 12), lampMat, j2.x, j2.y, j2.z, lamp);
     const head = new THREE.Group(); head.position.copy(j3); lamp.add(head);
-    const aimAt = V(4.6, -6.6, 2.4).normalize();
+    const aimAt = V(6.6, -6.8, 3.4).normalize();
     head.quaternion.setFromUnitVectors(V(0, -1, 0), aimAt);
     add(new THREE.CylinderGeometry(0.28, 0.62, 1.0, 40, 1, true), std(0x16171a, 0.35, 0.8, { side: THREE.DoubleSide }), 0, -0.4, 0, head);
-    const bulb = add(new THREE.CircleGeometry(0.5, 32).rotateX(Math.PI / 2), new THREE.MeshBasicMaterial({ color: 0xffd8a8, toneMapped: false }), 0, -0.88, 0, head);
+    const bulb = add(new THREE.CircleGeometry(0.5, 32).rotateX(Math.PI / 2), new THREE.MeshBasicMaterial({ color: 0xb8956c, toneMapped: false }), 0, -0.88, 0, head);
     shadowed(lamp); bulb.castShadow = false;
     const spot = new THREE.SpotLight(lin(0xffcf9e), 5, 36, 0.85, 0.7, 1.1);
     const lampPos = lamp.position.clone().add(j3).add(aimAt.clone().multiplyScalar(0.85));
@@ -342,7 +342,7 @@
         const boot = add(new THREE.BoxGeometry(0.2, 0.16, 0.3), bootMat[k], x, 0.2, 0.9, sw);
         const a = V(x, 0.2, 1.05), b = V(x, 0.05, 1.5), c = V(x * 0.6 + 0.6, -0.9, 1.2), d = V(1.2 + k * 0.06, -2.5, 0.2), e = V(1.4 + k * 0.06, -6.6, -0.6);
         const curve = new THREE.CatmullRomCurve3([a, b, c, d, e].map(v => v.clone().add(sw.position)));
-        const cab = add(new THREE.TubeGeometry(curve, 60, 0.045, 6, false), std([0x2f7bd8, 0xd8d8d8, 0xe5b23a, 0x2f7bd8, 0xd8d8d8, 0x3aa86b][k], 0.6, 0), 0, 0, 0, shelf);
+        const cab = add(new THREE.TubeGeometry(curve, 60, 0.032, 6, false), std([0x2f7bd8, 0xd8d8d8, 0xe5b23a, 0x2f7bd8, 0xd8d8d8, 0x3aa86b][k], 0.6, 0), 0, 0, 0, shelf);
         cables.push({ curve, mesh: cab, boot });
       }
     }
@@ -353,6 +353,7 @@
     for (let k = 0; k < 5; k++) rLeds.push(add(new THREE.BoxGeometry(0.08, 0.035, 0.02), new THREE.MeshBasicMaterial({ color: 0x000000, toneMapped: false }), -0.6 + k * 0.3, 0.22, 0.755, router));
     [[-0.85, -0.25], [0, -0.35], [0.85, -0.25]].forEach(([x, rz], i) => { const a = add(new THREE.CylinderGeometry(0.05, 0.06, 1.4, 12), std(0x1b1b1b, 0.6, 0), x, 1.05, -0.55, router); a.rotation.z = [0.25, 0, -0.25][i]; a.rotation.x = -0.12; });
     shadowed(shelf);
+    const shelfLight = new THREE.PointLight(lin(0xcfe2ff), 0.9, 9, 2); shelfLight.position.set(7.4, 8.6, -3.2); scene.add(shelfLight);
     const tracer = new THREE.Sprite(new THREE.SpriteMaterial({ map: NS.radial(THREE, 0), color: lin(0xffffff), transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, opacity: 0 }));
     tracer.scale.set(0.5, 0.5, 1); scene.add(tracer);
     const FAULT = 3;
@@ -399,8 +400,7 @@
       x.font = `600 ${U * 1.45}px ${UI}`; x.fillStyle = C.ink; x.textBaseline = 'middle';
       x.fillText(app, U * 8, U * 2.15);
       x.font = `400 ${U * 1.25}px ${UI}`; x.fillStyle = C.mute; x.fillText(crumbs || '', U * 8 + x.measureText(app).width * 1.18 + U * 1.5, U * 2.15);
-      x.font = `500 ${U * 1.25}px ${MONO}`; x.fillStyle = C.mute; x.textAlign = 'right'; x.fillText(time, sW - U * 2, U * 2.15); x.textAlign = 'left';
-      x.textBaseline = 'alphabetic';
+            x.textBaseline = 'alphabetic';
     }
     const txt = (s, X, Y, size, color, weight, font) => { sx.font = `${weight || 400} ${U * size}px ${font || UI}`; sx.fillStyle = color || C.ink; sx.fillText(s, X, Y); };
     const card = (X, Y, w, h) => { sx.fillStyle = C.panel; rr(sx, X, Y, w, h, U * 0.8); sx.fill(); sx.strokeStyle = C.line; sx.lineWidth = 2; sx.stroke(); };
@@ -591,14 +591,14 @@
       switch (name) {
         case 'hero': return S([0.8, 2.6, -0.8], [-0.42, 0.3, 0.86], 27, 32, 0.26, -0.02);
         case 'hero2': return S([0.8, 2.6, -0.8], [-0.36, 0.26, 0.9], 25, 32, 0.26, -0.02);
-        case 'onboard': return S([-2.9, 2.5, -0.9], [-0.1, 0.16, 0.98], 13.5, 32, 0.25, 0, 0, -0.3);
-        case 'onboard2': return S([-2.6, 2.6, -1.1], [0.06, 0.15, 0.99], 12.2, 32, 0.25, 0, 0, -0.3);
-        case 'net': return S([7.0, 6.55, -4.9], [-0.42, -0.08, 0.9], 6.4, 32, 0.24, 0, 0, -0.25);
-        case 'net2': return S([7.0, 6.5, -4.9], [-0.2, 0.02, 0.98], 5.6, 32, 0.24, 0, 0, -0.25);
+        case 'onboard': return S([-2.5, 2.6, -0.7], [-0.05, 0.18, 0.98], 15.5, 32, 0.16, -0.02, 0, -0.3);
+        case 'onboard2': return S([-2.3, 2.6, -0.9], [0.06, 0.17, 0.98], 14.5, 32, 0.16, -0.02, 0, -0.3);
+        case 'net': return S([7.0, 6.55, -4.9], [-0.42, -0.08, 0.9], 8.2, 32, 0.24, 0, 0, -0.25);
+        case 'net2': return S([7.0, 6.5, -4.9], [-0.2, 0.02, 0.98], 7.2, 32, 0.24, 0, 0, -0.25);
         case 'desk': return S([-0.6, 3.1, -2.0], [-0.22, 0.2, 0.95], 11.2, 32, 0.25, 0, 0, -0.32);
         case 'desk2': return S([-0.6, 3.0, -2.0], [-0.05, 0.24, 0.97], 10.4, 32, 0.25, 0, 0, -0.32);
-        case 'sec': return S([3.6, 2.6, -1.4], [-0.86, 0.18, 0.48], 13.5, 32, 0.24, 0, 0, -0.28);
-        case 'sec2': return S([3.4, 2.7, -1.5], [-0.72, 0.2, 0.66], 12.2, 32, 0.24, 0, 0, -0.28);
+        case 'sec': return S([4.4, 2.6, -1.2], [-0.86, 0.18, 0.48], 12, 32, 0.24, 0, 0, -0.28);
+        case 'sec2': return S([4.3, 2.7, -1.3], [-0.72, 0.2, 0.66], 11, 32, 0.24, 0, 0, -0.28);
         case 'maint': return S([2.0, 2.4, -1.2], [0.52, 0.34, 0.78], 15, 32, 0.25, 0, 0, -0.3);
         case 'maint2': return S([1.6, 2.5, -1.4], [0.36, 0.3, 0.88], 14, 32, 0.25, 0, 0, -0.3);
         case 'end': return S([-3, 4.5, -3.2], [0.28, 0.16, 0.95], 34, 34, 0.18, 0, 0, -0.2);
