@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oluwasola Adebayo Godwin · IT Systems &amp; Security</title>
+<meta name="description" content="Oluwasola Adebayo Godwin is an IT Systems Administrator, Cybersecurity Analyst and Network Support Engineer in Lagos, Nigeria. One desk, one long day: onboarding, networks, support, security and maintenance.">
+<meta name="theme-color" content="#0B0C0E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Oluwasola Adebayo Godwin · One desk, one long day">
+<meta property="og:description" content="A scroll-through 3D portfolio: a day of keeping an organisation secure and running, told on one workstation.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0C0E'/%3E%3Crect x='7' y='9' width='18' height='11' rx='1.5' fill='none' stroke='%23F2A541' stroke-width='2'/%3E%3Cpath d='M13 24h6' stroke='%23F2A541' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Oluwasola Adebayo Godwin","jobTitle":"IT Systems Administrator & Cybersecurity Analyst","email":"mailto:oluwasolabayo@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Lagos","addressCountry":"NG"},"alumniOf":"University of Ibadan","knowsAbout":["IT Systems Administration","Network Support","Cybersecurity","Microsoft 365","Active Directory","Firewalls","MFA","Wazuh","Wireshark","Nmap"]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0B0C0E; --bg-2: #111215; --ink: #ECE7DF; --mute: #9A958D; --dim: #5F5B55; --line: #22232A; --line-2: #2E3038;
+  --amber: #F2A541; --amber-ink: #1A1106; --ok: #5BD08A; --bad: #FF6B5B; --cyan: #6CD4E0;
+  --gut: max(20px, env(safe-area-inset-left, 0px), 5vw);
+  --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --sans: "Inter", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; background: var(--bg); }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16.5px/1.65 var(--sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 4px; }
+::selection { background: var(--amber); color: var(--amber-ink); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.mono { font-family: var(--mono); }
+
+/* ---------- fixed layers ---------- */
+#scene { position: fixed; inset: 0; width: 100vw; height: 100vh; height: 100lvh; display: block; z-index: 0; background: #050607; opacity: 0; transition: opacity 1.4s ease; }
+html.on #scene { opacity: 1; }
+.shade { position: fixed; inset: 0; z-index: 1; pointer-events: none; background:
+  linear-gradient(0deg, rgba(5,6,7,.94) 0%, rgba(5,6,7,.62) 26%, rgba(5,6,7,0) 52%),
+  linear-gradient(90deg, rgba(5,6,7,.55) 0%, rgba(5,6,7,0) 46%); }
+.fade { position: fixed; inset: 0; z-index: 1; pointer-events: none; background: var(--bg); opacity: 0; }
+
+/* top bar */
+.top { position: fixed; z-index: 40; top: 0; left: 0; right: 0; display: flex; align-items: center; gap: 20px; padding: max(20px, env(safe-area-inset-top, 0px)) var(--gut) 18px; pointer-events: none; transition: background .3s, border-color .3s; border-bottom: 1px solid transparent; }
+.top > * { pointer-events: auto; }
+.top.solid { background: color-mix(in srgb, var(--bg) 86%, transparent); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-color: var(--line); }
+.mark { display: inline-flex; align-items: baseline; gap: 10px; text-decoration: none; white-space: nowrap; }
+.mark b { font: 400 22px/1 var(--serif); letter-spacing: -.01em; }
+.mark span { font: 500 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--mute); }
+.top nav { display: flex; gap: 26px; margin-left: auto; }
+.top nav a { font: 500 11.5px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; text-decoration: none; color: var(--mute); transition: color .2s; }
+.top nav a:hover { color: var(--ink); }
+.hire { display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 16px; border: 1px solid var(--amber); border-radius: 2px; color: var(--amber); font: 600 11.5px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; text-decoration: none; transition: background .2s, color .2s; }
+.hire:hover { background: var(--amber); color: var(--amber-ink); }
+@media (max-width: 860px) { .top nav { display: none; } .hire { margin-left: auto; } .mark span { display: none; } }
+
+/* the day clock: what time it is in the film and what's happening */
+.hud { position: fixed; z-index: 30; top: calc(max(20px, env(safe-area-inset-top, 0px)) + 54px); right: var(--gut); display: grid; justify-items: end; gap: 6px; pointer-events: none; transition: opacity .4s; }
+.hud .t { font: 400 44px/1 var(--serif); letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+.hud .s { display: inline-flex; align-items: center; gap: 8px; font: 500 11px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--mute); }
+.hud .s i { width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 10px var(--ok); transition: background .3s, box-shadow .3s; }
+.hud[data-s="bad"] .s i { background: var(--bad); box-shadow: 0 0 10px var(--bad); }
+.hud[data-s="warn"] .s i { background: var(--amber); box-shadow: 0 0 10px var(--amber); }
+.hud.off { opacity: 0; }
+
+/* timeline at the bottom: a scrubber with the hours of the day */
+.day { position: fixed; z-index: 30; left: var(--gut); right: var(--gut); bottom: max(22px, env(safe-area-inset-bottom, 0px)); height: 30px; transition: opacity .4s; }
+.day .rail { position: absolute; left: 0; right: 0; top: 14px; height: 1px; background: rgba(236,231,223,.16); }
+.day .fill { position: absolute; left: 0; top: 14px; height: 1px; width: 100%; background: var(--amber); transform-origin: 0 50%; transform: scaleX(0); }
+.day button { all: unset; position: absolute; top: 0; height: 30px; transform: translateX(-50%); cursor: pointer; display: grid; justify-items: center; }
+.day button::before { content: ""; width: 1px; height: 9px; margin-top: 10px; background: rgba(236,231,223,.35); }
+.day button span { margin-top: 6px; font: 500 10px/1 var(--mono); letter-spacing: .08em; color: var(--dim); transition: color .2s; white-space: nowrap; }
+.day button.on span, .day button:hover span { color: var(--amber); }
+.day button.on::before { background: var(--amber); }
+.day.off { opacity: 0; pointer-events: none; }
+@media (max-width: 640px) { .day button span { display: none; } .hud .t { font-size: 34px; } }
+
+/* ---------- the film ---------- */
+.film { position: relative; z-index: 2; height: 1000vh; pointer-events: none; }
+.film a, .film button { pointer-events: auto; }
+.stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+.sub { position: absolute; left: var(--gut); bottom: calc(max(22px, env(safe-area-inset-bottom, 0px)) + 74px); width: min(620px, 52vw); opacity: 0; visibility: hidden; will-change: opacity, transform; }
+.sub .n { display: flex; align-items: center; gap: 14px; font: 500 11.5px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--amber); }
+.sub .n em { font-style: normal; color: var(--mute); }
+.sub h2 { margin: 18px 0 0; font: 400 clamp(44px, 5.4vw, 88px)/.98 var(--serif); letter-spacing: -.015em; text-wrap: balance; }
+.sub h2 i { color: var(--amber); }
+.sub p { margin: 18px 0 0; max-width: 46ch; color: rgba(236,231,223,.74); font-size: clamp(15.5px, 1.1vw, 17.5px); text-wrap: pretty; }
+.sub .tools { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 18px; font: 500 11.5px/1.5 var(--mono); color: var(--mute); letter-spacing: .02em; }
+.sub .tools b { font-weight: 500; color: var(--ink); }
+.intro-sub { bottom: auto; top: 50%; transform: translateY(-50%); width: min(760px, 60vw); }
+.intro-sub h1 { margin: 22px 0 0; font: 400 clamp(60px, 8.4vw, 148px)/.9 var(--serif); letter-spacing: -.025em; }
+.intro-sub h1 i { color: var(--amber); }
+.intro-sub p { font-size: clamp(16px, 1.25vw, 19px); max-width: 40ch; }
+.hint { position: absolute; left: 50%; bottom: calc(max(22px, env(safe-area-inset-bottom, 0px)) + 52px); transform: translateX(-50%); font: 500 10.5px/1 var(--mono); letter-spacing: .24em; text-transform: uppercase; color: var(--mute); display: grid; justify-items: center; gap: 12px; }
+.hint i { width: 1px; height: 34px; background: linear-gradient(var(--amber), transparent); animation: hint 1.8s ease-in-out infinite; transform-origin: top; }
+@keyframes hint { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); } 100% { transform: scaleY(1); opacity: 0; } }
+@media (max-width: 760px) {
+  .shade { background: linear-gradient(0deg, rgba(5,6,7,.96) 0%, rgba(5,6,7,.78) 34%, rgba(5,6,7,0) 58%); }
+  .sub, .intro-sub { left: var(--gut); right: var(--gut); width: auto; }
+  .intro-sub { top: auto; bottom: calc(max(22px, env(safe-area-inset-bottom, 0px)) + 70px); transform: none; }
+  .sub h2 { font-size: clamp(38px, 11vw, 54px); }
+  .intro-sub h1 { font-size: clamp(54px, 16vw, 84px); }
+  .sub p { font-size: 15px; margin-top: 12px; }
+  .hud { top: calc(max(20px, env(safe-area-inset-top, 0px)) + 50px); }
+  .hint { display: none; }
+}
+
+/* ---------- after the film ---------- */
+.page { position: relative; z-index: 3; background: var(--bg); }
+.sec { padding: clamp(96px, 14vh, 160px) var(--gut); max-width: 1440px; margin: 0 auto; }
+.eyebrow { font: 500 11.5px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--amber); }
+.h { margin: 22px 0 0; font: 400 clamp(48px, 6.4vw, 112px)/.96 var(--serif); letter-spacing: -.02em; text-wrap: balance; }
+.h i { color: var(--amber); }
+.lede { margin: 24px 0 0; max-width: 56ch; color: var(--mute); font-size: clamp(16.5px, 1.25vw, 19px); }
+.rv { opacity: 0; transform: translateY(22px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
+.rv.in { opacity: 1; transform: none; }
+
+/* about: a statement and the facts */
+.about { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 72px; align-items: end; }
+.about .h { font-size: clamp(40px, 4.6vw, 76px); line-height: 1.04; }
+.facts { display: grid; border-top: 1px solid var(--line); }
+.facts div { display: grid; grid-template-columns: 130px 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.facts dt { font: 500 11px/1.6 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--dim); }
+.facts dd { margin: 0; }
+.facts .live { display: inline-flex; align-items: center; gap: 8px; }
+.facts .live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 8px var(--ok); }
+@media (max-width: 960px) { .about { grid-template-columns: 1fr; gap: 40px; } }
+
+/* projects: cards */
+.cards { margin-top: 64px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.card { position: relative; background: var(--bg); padding: clamp(28px, 3vw, 44px); display: grid; align-content: start; gap: 16px; min-height: 340px; transition: background .35s; }
+.card::before { content: ""; position: absolute; left: 0; top: 0; height: 2px; width: 100%; background: var(--amber); transform: scaleX(0); transform-origin: left; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.card:hover { background: var(--bg-2); }
+.card:hover::before { transform: scaleX(1); }
+.card .row { display: flex; justify-content: space-between; align-items: center; font: 500 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--dim); }
+.card .st { color: var(--ok); } .card .st.wip { color: var(--amber); }
+.card h3 { margin: 18px 0 0; font: 400 clamp(32px, 2.8vw, 46px)/1 var(--serif); letter-spacing: -.01em; }
+.card p { margin: 0; color: var(--mute); max-width: 48ch; }
+.card ul { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: auto 0 0; }
+.card li { font: 500 11.5px/1 var(--mono); padding: 7px 10px; border: 1px solid var(--line-2); color: var(--mute); }
+@media (max-width: 860px) { .cards { grid-template-columns: 1fr; } .card { min-height: 0; } }
+
+/* experience: a timeline */
+.exp { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 64px; }
+.exp-head { position: sticky; top: 120px; align-self: start; }
+.tl { list-style: none; margin: 0; padding: 0; position: relative; }
+.tl::before { content: ""; position: absolute; left: 5px; top: 10px; bottom: 10px; width: 1px; background: var(--line-2); }
+.tl li { position: relative; padding: 0 0 52px 40px; }
+.tl li::before { content: ""; position: absolute; left: 0; top: 8px; width: 11px; height: 11px; border-radius: 50%; background: var(--bg); border: 1px solid var(--mute); }
+.tl li.now::before { background: var(--ok); border-color: var(--ok); box-shadow: 0 0 0 5px rgba(91,208,138,.14); }
+.tl .when { font: 500 11.5px/1.5 var(--mono); letter-spacing: .08em; color: var(--dim); text-transform: uppercase; }
+.tl li.now .when { color: var(--ok); }
+.tl h3 { margin: 8px 0 0; font: 400 clamp(28px, 2.4vw, 38px)/1.08 var(--serif); }
+.tl .org { margin-top: 6px; font: 500 12.5px/1.5 var(--mono); color: var(--amber); }
+.tl ul { margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; color: var(--mute); max-width: 62ch; }
+.tl ul li { padding: 0 0 0 18px; }
+.tl ul li::before { content: "—"; position: absolute; left: 0; top: 0; width: auto; height: auto; border: 0; background: none; color: var(--dim); box-shadow: none; }
+@media (max-width: 960px) { .exp { grid-template-columns: 1fr; gap: 40px; } .exp-head { position: static; } }
+
+/* skills: grouped columns */
+.skills { margin-top: 64px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+.skills div { padding: 26px 22px 30px 0; border-right: 1px solid var(--line); }
+.skills div + div { padding-left: 22px; }
+.skills div:last-child { border-right: 0; }
+.skills h3 { margin: 0 0 18px; font: 400 26px/1.1 var(--serif); }
+.skills h3 small { display: block; margin-bottom: 10px; font: 500 11px/1 var(--mono); letter-spacing: .14em; color: var(--dim); }
+.skills ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 9px; }
+.skills li { font-size: 15px; color: var(--mute); }
+@media (max-width: 1100px) { .skills { grid-template-columns: repeat(3, minmax(0, 1fr)); } .skills div:nth-child(3) { border-right: 0; } .skills div:nth-child(4) { padding-left: 0; } .skills div:nth-child(n+4) { border-top: 1px solid var(--line); } }
+@media (max-width: 640px) { .skills { grid-template-columns: 1fr 1fr; } .skills div { border-right: 0 !important; padding-left: 0 !important; border-top: 1px solid var(--line); } }
+
+/* credentials */
+.creds { margin-top: 64px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; }
+.creds h3 { margin: 0 0 8px; font: 500 11px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--dim); }
+.creds ol { list-style: none; padding: 0; margin: 0; }
+.creds li { padding: 16px 0; border-bottom: 1px solid var(--line); }
+.creds b { display: block; font-weight: 500; }
+.creds span { font: 500 12px/1.5 var(--mono); color: var(--mute); }
+@media (max-width: 960px) { .creds { grid-template-columns: 1fr; gap: 36px; } }
+
+/* contact */
+.contact { text-align: left; padding-bottom: clamp(70px, 10vh, 120px); }
+.contact .h { font-size: clamp(64px, 11vw, 200px); line-height: .88; }
+.mail { display: inline-flex; align-items: center; gap: 16px; margin-top: 44px; font: 400 clamp(26px, 3.4vw, 52px)/1.1 var(--serif); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 8px; transition: color .2s, border-color .2s; overflow-wrap: anywhere; }
+.mail:hover { color: var(--amber); border-color: var(--amber); }
+.acts { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 30px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; height: 46px; padding: 0 20px; border-radius: 2px; border: 1px solid var(--line-2); background: transparent; font: 600 12px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: border-color .2s, color .2s, background .2s; }
+.btn:hover { border-color: var(--amber); color: var(--amber); }
+.btn.solid { background: var(--amber); border-color: var(--amber); color: var(--amber-ink); }
+.btn.solid:hover { background: transparent; color: var(--amber); }
+.note { font: 500 12px/1 var(--mono); color: var(--ok); }
+.foot { max-width: 1440px; margin: 0 auto; padding: 26px var(--gut) max(26px, env(safe-area-inset-bottom, 0px)); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); font: 500 11.5px/1.6 var(--mono); color: var(--dim); }
+.foot a { text-decoration: none; color: var(--mute); }
+.foot a:hover { color: var(--amber); }
+
+/* without WebGL: the chapters read as a list */
+.nofilm #scene, .nofilm .shade, .nofilm .hud, .nofilm .day, .nofilm .hint { display: none !important; }
+.nofilm .film { height: auto; pointer-events: auto; }
+.nofilm .stage { position: static; height: auto; padding: 130px 0 40px; }
+.nofilm .sub { position: static; opacity: 1 !important; visibility: visible !important; transform: none !important; width: auto; max-width: 760px; margin: 0 var(--gut) 80px; }
+@media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; transition: none; } .hint i { animation: none; } }
+</style>
+</head>
+<body>
+
+<canvas id="scene" aria-hidden="true"></canvas>
+<div class="shade" aria-hidden="true"></div>
+<div class="fade" id="fade" aria-hidden="true"></div>
+
+<header class="top" id="top-bar">
+  <a class="mark" href="#film" data-p="0"><b>Oluwasola Adebayo</b><span>IT Systems · Security</span></a>
+  <nav aria-label="Sections">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+  </nav>
+  <a class="hire" href="#contact">Get in touch</a>
+</header>
+
+<div class="hud" id="hud" aria-hidden="true"><div class="t" id="hudT">08:00</div><div class="s"><i></i><span id="hudS">Signing in</span></div></div>
+<div class="day" id="day">
+  <div class="rail"></div><div class="fill" id="dayFill"></div>
+  <button data-p="0" style="left:0%"><span>08:00</span></button>
+  <button data-p="0.13" style="left:13%"><span>08:30 Onboard</span></button>
+  <button data-p="0.29" style="left:29%"><span>09:40 Network</span></button>
+  <button data-p="0.45" style="left:45%"><span>11:15 Support</span></button>
+  <button data-p="0.61" style="left:61%"><span>14:05 Security</span></button>
+  <button data-p="0.765" style="left:76.5%"><span>17:30 Maintain</span></button>
+  <button data-p="0.93" style="left:93%"><span>23:00</span></button>
+</div>
+
+<main>
+  <section class="film" id="film" aria-label="One desk, one long day: a scroll-through film">
+    <div class="stage">
+      <div class="sub intro-sub" data-in="-1" data-out="0.05">
+        <div class="n">IT Systems Administrator <em>/</em> Cybersecurity Analyst</div>
+        <h1>Oluwasola<br><i>Adebayo</i></h1>
+        <p>One desk, one long day. Scroll through what it takes to keep an organisation secure and running, from the first sign-in to the last check at night.</p>
+      </div>
+      <div class="hint" id="hint" aria-hidden="true">Scroll<i></i></div>
+
+      <div class="sub" data-in="0.085" data-out="0.195">
+        <div class="n">01 <em>·</em> 08:30 <em>·</em> Onboarding</div>
+        <h2>A new starter, <i>ready on day one.</i></h2>
+        <p>Account, licences, group access, multi-factor sign-in and endpoint protection, all set before they sit down. When someone leaves, the same care in reverse.</p>
+        <div class="tools"><b>Microsoft 365</b><span>Active Directory</span><span>MFA</span><span>Endpoint protection</span></div>
+      </div>
+      <div class="sub" data-in="0.225" data-out="0.36">
+        <div class="n">02 <em>·</em> 09:40 <em>·</em> Network</div>
+        <h2>A link drops. <i>I find it.</i></h2>
+        <p>LAN and WAN, routers, switches and firewalls. Trace the fault to the port, fix it, and bring people back online before the queue builds.</p>
+        <div class="tools"><b>NASC Ibadan</b><span>TCP/IP</span><span>DNS · DHCP</span><span>VLANs</span><span>Subnetting</span></div>
+      </div>
+      <div class="sub" data-in="0.385" data-out="0.52">
+        <div class="n">03 <em>·</em> 11:15 <em>·</em> Support</div>
+        <h2>Calm help, <i>real fixes.</i></h2>
+        <p>Hardware, software and connectivity problems solved in person or remotely, explained in plain language and written down so they don't come back.</p>
+        <div class="tools"><b>PrintBlock Africa · Ewash</b><span>Freshdesk</span><span>AnyDesk</span><span>Hardware repair</span></div>
+      </div>
+      <div class="sub" data-in="0.545" data-out="0.68">
+        <div class="n">04 <em>·</em> 14:05 <em>·</em> Security</div>
+        <h2>Threats stop <i>at the edge.</i></h2>
+        <p>Firewalls, endpoint protection, MFA and access control, with every alert watched and every incident recorded. Phishing is quarantined before anyone clicks.</p>
+        <div class="tools"><b>Cybernovr · Treal Hotels</b><span>Wazuh</span><span>Wireshark</span><span>Nmap</span><span>Burp Suite</span></div>
+      </div>
+      <div class="sub" data-in="0.705" data-out="0.825">
+        <div class="n">05 <em>·</em> 17:30 <em>·</em> Maintenance</div>
+        <h2>Patched, backed up, <i>written down.</i></h2>
+        <p>Updates in rings, backups with a real restore test, and clear records, so systems stay stable and the next person can pick up where I left off.</p>
+        <div class="tools"><b>Patching</b><span>Backups</span><span>Documentation</span></div>
+      </div>
+      <div class="sub" data-in="0.86" data-out="0.975">
+        <div class="n">06 <em>·</em> 23:00 <em>·</em> Always on</div>
+        <h2>Secure systems. <i>Calm users.</i></h2>
+        <p>That's the job, every day. Here is the work behind it.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="page">
+    <section class="sec" id="about" aria-labelledby="aboutH">
+      <div class="about">
+        <div>
+          <div class="eyebrow rv">About</div>
+          <h2 class="h rv" id="aboutH">I keep systems secure, keep downtime low, and make technology <i>simple</i> for the people who use it.</h2>
+        </div>
+        <dl class="facts rv">
+          <div><dt>Based in</dt><dd>Lagos, Nigeria</dd></div>
+          <div><dt>Focus</dt><dd>Systems administration, network support, cybersecurity operations</dd></div>
+          <div><dt>Now</dt><dd class="live">System Administrator, Treal Hotels and Suites</dd></div>
+          <div><dt>Education</dt><dd>MSc Information Science, University of Ibadan</dd></div>
+          <div><dt>Interested in</dt><dd>AI for security automation and digital operations</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="sec" id="projects" aria-labelledby="projH">
+      <div class="eyebrow rv">Projects</div>
+      <h2 class="h rv" id="projH">Things I've <i>built.</i></h2>
+      <p class="lede rv">Practical tools that removed a risk or a delay for the people around me.</p>
+      <div class="cards rv">
+        <article class="card"><div class="row"><span>01 · Security</span><span class="st">Built</span></div><h3>Phishing Email Detection</h3><p>A detection tool that helps identify suspicious emails before they do harm, raising staff awareness and reducing the risk of email-based incidents.</p><ul><li>Email security</li><li>Threat detection</li><li>Awareness</li></ul></article>
+        <article class="card"><div class="row"><span>02 · Workflow</span><span class="st">Built</span></div><h3>Memo Approval System</h3><p>An internal platform for creating, approving and filing memos. It replaced paperwork and cut approval delays across departments.</p><ul><li>Web development</li><li>Approvals</li><li>Records</li></ul></article>
+        <article class="card"><div class="row"><span>03 · Records</span><span class="st wip">In progress</span></div><h3>Corporate Event Management</h3><p>A system for organisations to store event details securely, manage records, and archive event photos for future reference and reporting.</p><ul><li>Secure storage</li><li>Data management</li><li>Reporting</li></ul></article>
+        <article class="card"><div class="row"><span>04 · Operations</span><span class="st">Ongoing</span></div><h3>Documentation &amp; Automation</h3><p>Runbooks and simple automation around system use and security practice, plus event email automations and member database upkeep. Support became consistent and easy to hand over.</p><ul><li>Runbooks</li><li>Automation</li><li>Security practice</li></ul></article>
+      </div>
+    </section>
+
+    <section class="sec" id="experience" aria-labelledby="expH">
+      <div class="exp">
+        <div class="exp-head">
+          <div class="eyebrow rv">Experience</div>
+          <h2 class="h rv" id="expH">Where I've kept things <i>running.</i></h2>
+          <p class="lede rv">Hotels, government, print, consulting and security firms. Different desks, the same job: secure, stable, supported.</p>
+        </div>
+        <ol class="tl rv">
+          <li class="now"><div class="when">Apr 2026 — Present · Hybrid</div><h3>System Administrator</h3><div class="org">Treal Hotels and Suites · Ogun State</div>
+            <ul><li>Manage accounts, permissions and access control across hotel systems.</li><li>Monitor network and system activity and respond to suspicious behaviour.</li><li>Support hotel operations systems and maintain the network.</li></ul></li>
+          <li><div class="when">Aug 2025 — Nov 2025 · Contract</div><h3>Cybersecurity Technical Analyst</h3><div class="org">Cybernovr Limited · Lagos</div>
+            <ul><li>Configured and monitored firewalls, endpoint protection and cloud security tools.</li><li>Implemented access controls and MFA policies across client systems.</li><li>Wrote documentation and incident records that sped up handovers.</li></ul></li>
+          <li class="now"><div class="when">Nov 2024 — Present · Part-time</div><h3>IT &amp; Operations Coordinator</h3><div class="org">Institute of Hospitality UK</div>
+            <ul><li>Deliver virtual events: Zoom setup, live streaming, real-time support.</li><li>Maintain member databases and build event email automations.</li><li>Monitor systems, backups and platform performance; train staff.</li></ul></li>
+          <li><div class="when">Mar 2024 — Oct 2025</div><h3>IT &amp; Operations Coordinator</h3><div class="org">PrintBlock Africa · Lagos</div>
+            <ul><li>Ran daily IT operations: stable internet, working devices, prompt support.</li><li>Enforced access control and endpoint protection.</li><li>Repaired PCs and laptops in-house, avoiding downtime and replacement costs.</li></ul></li>
+          <li class="now"><div class="when">Jan 2024 — Present</div><h3>Executive Assistant to the MD, IT Operations</h3><div class="org">Nethermentor Limited · Lagos</div>
+            <ul><li>Technical and administrative support to the Managing Director.</li><li>Coordinate digital operations, virtual meetings and project documentation.</li><li>Maintain digital assets, communication channels and tools.</li></ul></li>
+          <li><div class="when">Jan 2023 — Feb 2024</div><h3>IT Systems Administrator / Network Support Engineer</h3><div class="org">National Agricultural Seeds Council · Ibadan</div>
+            <ul><li>Day-to-day systems and network support; accounts, email and permissions.</li><li>LAN/WAN connectivity, routers, switches, printers and workstations.</li><li>Maintenance, OS updates and backups; in-house hardware repair.</li></ul></li>
+          <li><div class="when">Mar 2022 — Oct 2023 · Remote</div><h3>Technical Support Specialist</h3><div class="org">Ewash Enterprise · Akure</div>
+            <ul><li>Remote support for software, hardware and connectivity issues.</li><li>Installed and configured applications for consistent environments.</li><li>Documented resolutions, cutting repeat incidents and response times.</li></ul></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="sec" id="skills" aria-labelledby="skillsH">
+      <div class="eyebrow rv">Skills</div>
+      <h2 class="h rv" id="skillsH">The <i>toolkit.</i></h2>
+      <div class="skills rv">
+        <div><h3><small>01</small>Systems &amp; Support</h3><ul><li>Microsoft 365</li><li>Windows, macOS, Linux</li><li>Active Directory (basic)</li><li>Hardware diagnostics &amp; repair</li><li>Backup management</li><li>Freshdesk · AnyDesk</li><li>User support &amp; training</li></ul></div>
+        <div><h3><small>02</small>Networking</h3><ul><li>LAN / WAN troubleshooting</li><li>Routers &amp; switches</li><li>Firewalls</li><li>TCP/IP · DNS · DHCP</li><li>VLANs</li><li>IP addressing &amp; subnetting</li></ul></div>
+        <div><h3><small>03</small>Security</h3><ul><li>Threat detection</li><li>Incident response</li><li>Vulnerability assessment</li><li>Basic penetration testing</li><li>MFA &amp; access control</li><li>Wazuh · Wireshark · Nmap · Burp Suite</li><li>Security awareness training</li></ul></div>
+        <div><h3><small>04</small>Cloud &amp; Automation</h3><ul><li>Azure (basic)</li><li>AWS (basic)</li><li>AI tools for security automation</li><li>System monitoring</li><li>Email automation</li></ul></div>
+        <div><h3><small>05</small>Web &amp; Data</h3><ul><li>HTML · CSS · JavaScript</li><li>SQL (basic)</li><li>WordPress · Shopify</li><li>Data collection &amp; visualisation</li><li>Research &amp; analytical reporting</li></ul></div>
+      </div>
+    </section>
+
+    <section class="sec" id="credentials" aria-labelledby="credH">
+      <div class="eyebrow rv">Credentials</div>
+      <h2 class="h rv" id="credH">Always <i>learning.</i></h2>
+      <div class="creds rv">
+        <div><h3>Education</h3><ol>
+          <li><b>MSc Information Science</b><span>University of Ibadan</span></li>
+          <li><b>BSc Computer Science</b><span>University of the People · in progress</span></li>
+          <li><b>BSc Agricultural Extension</b><span>Adekunle Ajasin University, Akungba</span></li></ol></div>
+        <div><h3>Certifications</h3><ol>
+          <li><b>Ethical Hacking &amp; Digital Forensics</b><span>ICDFA</span></li>
+          <li><b>Foundation of Ethical Hacking</b><span>Udacity · Bertelsmann nanodegree</span></li>
+          <li><b>Introduction to Cybersecurity</b><span>Cisco Networking Academy</span></li>
+          <li><b>Networking Fundamentals</b><span>Huawei</span></li>
+          <li><b>IP Addressing &amp; Subnetting</b><span>Udemy</span></li>
+          <li><b>Tools for Data Science</b><span>IBM · Coursera</span></li></ol></div>
+        <div><h3>Memberships</h3><ol>
+          <li><b>Nigeria Computer Society</b><span>NCS</span></li>
+          <li><b>Intl. Cybersecurity &amp; Digital Forensics Academy</b><span>ICDFA</span></li>
+          <li><b>National Association of Cybersecurity Students</b><span>NACSS</span></li>
+          <li><b>Society for Information Science &amp; Technology</b><span>SISTN</span></li>
+          <li><b>Rotary Club Lagos</b><span>Member</span></li></ol></div>
+      </div>
+    </section>
+
+    <section class="sec contact" id="contact" aria-labelledby="contactH">
+      <div class="eyebrow rv">Contact</div>
+      <h2 class="h rv" id="contactH">Let's <i>talk.</i></h2>
+      <p class="lede rv">Open to IT systems administration, network support and cybersecurity roles, in Lagos or remote.</p>
+      <a class="mail rv" href="mailto:oluwasolabayo@gmail.com">oluwasolabayo@gmail.com <span aria-hidden="true">↗</span></a>
+      <div class="acts rv">
+        <button class="btn solid" id="copy" type="button">Copy email</button>
+        <a class="btn" href="mailto:oluwasolabayo@gmail.com?subject=CV%20request">Request CV</a>
+        <span class="note" id="copyNote" role="status"></span>
+      </div>
+    </section>
+    <footer class="foot"><span>© 2026 Oluwasola Adebayo Godwin · Lagos</span><span>Built by hand in Three.js · no tracking · <a href="#film" data-p="0">Replay the day ↑</a></span></footer>
+  </div>
+</main>
+
+<script src="lib/three.min.js"></script>
+<script src="lib/RectAreaLightUniformsLib.js"></script>
+<script src="lib/textures.js"></script>
+<script src="lib/macbook.js"></script>
+<script src="workstation.js"></script>
+<script>
+(function () {
+  'use strict';
+  const $ = (s, r) => (r || document).querySelector(s), $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+  const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+  const smooth = t => t * t * (3 - 2 * t);
+  const root = document.documentElement, reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const film = $('#film'), subs = $$('.sub'), ticks = $$('#day button');
+  const bar = $('#top-bar'), hud = $('#hud'), hudT = $('#hudT'), hudS = $('#hudS'), day = $('#day'), fill = $('#dayFill'), fade = $('#fade'), hint = $('#hint');
+
+  // what the clock and status say through the day
+  const CLOCK = [[0, '08:00', 'Signing in', 'ok'], [0.075, '08:30', 'Enrolling a device', 'ok'], [0.215, '09:40', 'Network check', 'ok'], [0.245, '09:41', 'Port 4 down', 'bad'],
+    [0.275, '09:43', 'Tracing the fault', 'warn'], [0.315, '09:46', 'Link restored', 'ok'], [0.375, '11:15', 'Working the queue', 'warn'], [0.47, '12:40', 'Queue clear', 'ok'],
+    [0.535, '14:05', 'Monitoring', 'ok'], [0.545, '14:06', 'Active attack', 'bad'], [0.635, '14:31', 'Contained · 0 breaches', 'ok'], [0.695, '17:30', 'Patching', 'warn'],
+    [0.745, '18:10', 'Backing up', 'warn'], [0.805, '19:02', 'Restore test passed', 'ok'], [0.85, '23:00', 'All systems operational', 'ok']];
+
+  const total = () => film.offsetHeight - innerHeight;
+  const progress = () => { const t = total(); return t > 0 ? clamp(-film.getBoundingClientRect().top / t) : 0; };
+  const F = 0.018;
+  let lastClock = -1, ws = null;
+  function paint() {
+    const p = progress();
+    subs.forEach(s => {
+      const a = +s.dataset.in, b = +s.dataset.out;
+      const o = (a < 0 ? 1 : smooth(clamp((p - a) / F))) * (1 - smooth(clamp((p - (b - F)) / F)));
+      s.style.opacity = o.toFixed(3); s.style.visibility = o > 0.002 ? 'visible' : 'hidden';
+      const y = (1 - o) * 18 * (p < (a + b) / 2 ? 1 : -1);
+      s.style.transform = s.classList.contains('intro-sub') && innerWidth > 760 ? `translateY(calc(-50% + ${y.toFixed(1)}px))` : `translateY(${y.toFixed(1)}px)`;
+    });
+    let ci = 0; CLOCK.forEach((c, i) => { if (p >= c[0]) ci = i; });
+    if (ci !== lastClock) { lastClock = ci; hudT.textContent = CLOCK[ci][1]; hudS.textContent = CLOCK[ci][2]; hud.dataset.s = CLOCK[ci][3]; }
+    fill.style.transform = `scaleX(${p.toFixed(4)})`;
+    let on = 0; ticks.forEach((t, i) => { if (p >= +t.dataset.p - 0.06) on = i; });
+    ticks.forEach((t, i) => t.classList.toggle('on', i === on));
+    const past = film.getBoundingClientRect().bottom < innerHeight * 0.6;
+    hud.classList.toggle('off', past); day.classList.toggle('off', past);
+    bar.classList.toggle('solid', film.getBoundingClientRect().bottom < 80);
+    fade.style.opacity = smooth(clamp((p - 0.97) / 0.028)).toFixed(3);
+    hint.style.opacity = (1 - clamp(p / 0.015)).toFixed(3);
+    if (ws) ws.setProgress(p);
+  }
+  function go(p) {
+    const y = p > 1 ? $('#about').getBoundingClientRect().top + scrollY : film.offsetTop + p * total();
+    scrollTo({ top: y, behavior: reduced ? 'auto' : 'smooth' });
+  }
+  ticks.forEach(t => t.addEventListener('click', () => go(+t.dataset.p)));
+  $$('a[data-p]').forEach(a => a.addEventListener('click', e => { if (root.classList.contains('nofilm')) return; e.preventDefault(); go(+a.dataset.p); }));
+
+  try { ws = window.UIConnect && UIConnect.workstation ? UIConnect.workstation({ canvas: $('#scene'), reduced }) : null; }
+  catch (e) { console.error(e); ws = null; }
+  if (!ws) root.classList.add('nofilm');
+  else {
+    const jump = /[?&]p=([\d.]+)/.exec(location.search);
+    if (jump) scrollTo(0, film.offsetTop + Math.min(1, +jump[1]) * total());
+    ws.setProgress(progress(), true);
+    requestAnimationFrame(() => root.classList.add('on'));
+    new IntersectionObserver(es => ws.setVisible(es[0].isIntersecting), { rootMargin: '10% 0px' }).observe(film);
+  }
+  addEventListener('scroll', paint, { passive: true });
+  addEventListener('resize', paint);
+  paint();
+
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+  $$('.rv').forEach(el => io.observe(el));
+
+  $('#copy').addEventListener('click', async () => {
+    const n = $('#copyNote');
+    try { await navigator.clipboard.writeText('oluwasolabayo@gmail.com'); n.textContent = 'Copied'; } catch (e) { n.textContent = 'oluwasolabayo@gmail.com'; }
+    setTimeout(() => { n.textContent = ''; }, 2400);
+  });
+})();
+</script>
+</body>
+</html>
